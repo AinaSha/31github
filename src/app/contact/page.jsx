@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Portfolio = () => {
+const Contact = () => {
   return (
-    <div>Portfolio</div>
+    <div>Contact</div>
   )
 }
 
-export default Portfolio
+export default Contact
