@@ -12,7 +12,6 @@ export default function Home() {
           Turning your Idea into Reality. We bring together the teams from the
           global tech industry.
         </p>
-        
       </div>
     </main>
   )
