@@ -1,10 +1,17 @@
 import React from 'react'
+import styles from "./page.module.css"
+import Image from "next/image"
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.container}>
       <div>2023 My Next App. All rights reserved.</div>
-      <div></div>
+      <div className={styles.social}>
+        <Image src='/vk.png' width={15} height={15} className={styles.icon} alt="vk.com"/>
+        <Image src='/inst.png' width={15} height={15} className={styles.icon} alt="instagram"/>
+        <Image src='/twitter.png' width={15} height={15} className={styles.icon} alt="twitter"/>
+        <Image src='/yt.png' width={15} height={15} className={styles.icon} alt="youtube"/>
+      </div>
     </footer>
   )
 }
