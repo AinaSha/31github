@@ -2,7 +2,12 @@
 const nextConfig = {
   swcMinify: false,
   images:{
-    domains: ['images.unsplash.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
 }
 }
 
