@@ -2,8 +2,11 @@
 import React, { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import styles from './page.module.css'
+import { useSession } from 'next-auth/react'
 
 const Dashboard = () => {
+  const session = useSession()
+  console.log(session);
   // const [data, setData] = useState([])
   // const [error, setError] = useState(false)
   // const [isLoading, setIsLoading] = useState(true)
