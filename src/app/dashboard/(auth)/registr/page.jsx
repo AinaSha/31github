@@ -1,6 +1,5 @@
 "use client"
-
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -11,7 +10,7 @@ const Registr = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault()
-    const userName = e.target[0].value
+    const name = e.target[0].value
     const email = e.target[1].value
     const password = e.target[2].value
 
@@ -22,12 +21,13 @@ const Registr = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName,
+          name,
           email,
           password
         }),
       });
-      res.status === 201 && router.push("/dashboard/login?success= Account has been created")
+      res.status === 201 && 
+      router.push("/dashboard/login?success=Account has been created")
     } catch (error) {
       setError(error)
       console.log(error);
