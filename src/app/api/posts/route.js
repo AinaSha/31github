@@ -15,3 +15,18 @@ export const GET = async(request)=> {
     return new NextResponse('Error in response of DB', {status:500})
   }
 }
+
+export const POST = async(request)=> {
+  const body =  request.json()
+  const newPost = new Post(body)
+
+  try {
+    await connect() 
+    
+    await newPost.save()
+
+    return new NextResponse("Post has been created", {status:201})
+  } catch (error) {
+    return new NextResponse('DataBase Error', {status:500})
+  }
+}
