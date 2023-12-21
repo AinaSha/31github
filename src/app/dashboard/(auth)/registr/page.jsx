@@ -4,9 +4,10 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-const Registr = () => {
+const Register = () => {
   const [error, setError] = useState(null)
-  const router = useRouter()
+
+  const router = useRouter();
 
   const handleSubmit = async(e) => {
     e.preventDefault()
@@ -67,4 +68,4 @@ const Registr = () => {
   )
 }
 
-export default Registr
+export default Register

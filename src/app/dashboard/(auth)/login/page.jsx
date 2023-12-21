@@ -1,9 +1,8 @@
 "use client"
 
-import React from 'react'
-import styles from './page.module.css'
 import { signIn, useSession } from 'next-auth/react'
 import { useRouter } from "next/navigation"
+import styles from './page.module.css'
 
 const Login = () => {
   const session = useSession()

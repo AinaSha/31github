@@ -4,6 +4,7 @@ import useSWR from 'swr'
 import styles from './page.module.css'
 import { useSession } from 'next-auth/react'
 import { useRouter } from "next/navigation"
+import Image from "next/image";
 
 const Dashboard = () => {
   // const [data, setData] = useState([])
@@ -31,8 +32,11 @@ const Dashboard = () => {
   const router = useRouter()
 
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-  const { data, mutate, error, isLoading } = useSWR(`/api/posts?username=${session?.data?.user.name}`, fetcher)
-  console.log(data);
+  const { data, mutate, error, isLoading } = useSWR(
+    `/api/posts?username=${session?.data?.user.name}`,
+     fetcher
+  );
+  // console.log(data);
 
   if (session.status == "loading"){
     return <p>Loading...</p>
@@ -68,7 +72,7 @@ const Dashboard = () => {
 
   const handleDelete = async(id) => {
     try {
-      await fetch(`/api/posts/{id}`, {
+      await fetch(`/api/posts/${id}`, {
         method: "DELETE",
       });
       mutate();
@@ -81,13 +85,24 @@ const Dashboard = () => {
     return (
       <div className={styles.container}>
         <div className={styles.posts}>
-          {isLoading ? "Loading": data?.map((post) => (
+          {isLoading
+           ? "Loading"
+           : data?.map((post) => (
             <div className={styles.post} key={post._id}>
               <div className={styles.imgContainer}>
-                <Image src={post.img} alt={post.title} width={200} height={100} />
+                <Image 
+                  src={post.img} 
+                  alt={post.title} 
+                  width={200} 
+                  height={100} 
+                />
               </div>
               <h2 className={StyleSheet.postTitle}>{post.title}</h2>
-              <span className={styles.delete} onClick={() => handleDelete(post._id)}>X</span>
+              <span 
+                className={styles.delete} 
+                onClick={() => handleDelete(post._id)}>
+                X
+              </span>
             </div>
           ))}
         </div>
@@ -102,9 +117,8 @@ const Dashboard = () => {
         </form>
 
       </div>
-    )
+    );
   }
- 
-}
+};
 
-export default Dashboard
+export default Dashboard;
