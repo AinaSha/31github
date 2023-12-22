@@ -39,6 +39,7 @@ const links = [
 
 const NavbBar = () => {
   const session = useSession()
+  
   return (
     <nav className={styles.container}>
       <Link href='/' className={styles.logo}>MyApp</Link>

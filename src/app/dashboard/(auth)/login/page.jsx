@@ -13,7 +13,7 @@ const Login = () => {
     return <p>Loading</p>
   }
   if (session.status == "authenticated"){
-    router?.push("dashboard")
+    router?.push("/dashboard")
   }
 
   const handleSubmit = (e) => {

@@ -31,7 +31,7 @@ const Dashboard = () => {
   const session = useSession()
   const router = useRouter()
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const fetcher = (...args) => fetch(...args).then((res) => res.json())
   const { data, mutate, error, isLoading } = useSWR(
     `/api/posts?username=${session?.data?.user.name}`,
      fetcher
@@ -70,7 +70,7 @@ const Dashboard = () => {
     }
   }
 
-  const handleDelete = async(id) => {
+  const handleDelete = async (id) => {
     try {
       await fetch(`/api/posts/${id}`, {
         method: "DELETE",
@@ -97,7 +97,7 @@ const Dashboard = () => {
                   height={100} 
                 />
               </div>
-              <h2 className={StyleSheet.postTitle}>{post.title}</h2>
+              <h2 className={styles.postTitle}>{post.title}</h2>
               <span 
                 className={styles.delete} 
                 onClick={() => handleDelete(post._id)}>
