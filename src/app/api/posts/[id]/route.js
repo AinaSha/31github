@@ -14,7 +14,7 @@ export const GET = async(request, {params})=> {
   }
 }
 
-export const DELETE = async(request, {params})=> {
+export const DELETE = async(request, { params })=> {
   const { id } = params;
 
   try {
