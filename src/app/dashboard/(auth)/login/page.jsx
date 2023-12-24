@@ -3,6 +3,7 @@
 import { signIn, useSession } from "next-auth/react";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import Link from 'next/link'
 
 const Login = () => {
   const session = useSession();
@@ -12,7 +13,7 @@ const Login = () => {
     return <p>Loading</p>
   }
   if (session.status == "authenticated"){
-    router?.push("/dashboard")
+    router?.replace("/dashboard")
   }
 
   const handleSubmit = (e) => {
@@ -41,6 +42,8 @@ const Login = () => {
       </form>
 
       <button onClick={() => signIn("google")}>Login with Google</button>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/regitsr">Register</Link>
     </div>
   );
 };
