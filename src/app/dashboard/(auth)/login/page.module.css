@@ -44,6 +44,17 @@
   font-weight: bold;
 }
 
+.button2 {
+  width: 300px;
+  padding: 20px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  color: #555555;
+  font-weight: bold;
+}
+
 .button:hover {
   background-color: #49b07d;
 }

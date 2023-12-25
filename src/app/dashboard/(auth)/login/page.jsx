@@ -41,9 +41,9 @@ const Login = () => {
         <button className={styles.button}>Login</button>
       </form>
 
-      <button onClick={() => signIn("google")}>Login with Google</button>
+      <button className={styles.button2} onClick={() => signIn("google")}>Login with Google</button>
       <span className={styles.or}>- OR -</span>
-      <Link className={styles.link} href="/dashboard/regitsr">Register</Link>
+      <Link className={styles.link} href="/dashboard/registr">Register</Link>
     </div>
   );
 };
