@@ -1,22 +1,23 @@
 "use client";
 
+import { useEffect } from 'react';
 import { signIn, useSession } from "next-auth/react";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
-import Link from 'next/link'
+import Link from 'next/link';
 
 const Login = () => {
   const session = useSession();
   const router = useRouter();
+ 
+    if (session.status == "loading"){
+      return <p>Loading</p>
+    }
+    if (session.status == "authenticated"){
+      router?.replace("/dashboard")
+    }
 
-  if (session.status == "loading"){
-    return <p>Loading</p>
-  }
-  if (session.status == "authenticated"){
-    router?.replace("/dashboard")
-  }
-
-  const handleSubmit = (e) => {
+   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target[0].value;
     const password = e.target[1].value;
