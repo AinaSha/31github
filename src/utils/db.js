@@ -1,11 +1,11 @@
-import mangoose from "mongoose"
+import mangoose from "mongoose";
 
-const connect = async() => {
+const connect = async () => {
   try {
-    await mangoose.connect(process.env.MONGO)
+    await mangoose.connect(process.env.MONGO);
   } catch (error) {
-    throw new  Error("Connection failed");
+    throw new Error("Connection failed");
   }
-}
+};
 
 export default connect;
